@@ -43,7 +43,6 @@ public class Dec03 {
             String[] area = tempArray[3].split("x");
             width = area[0];
             height = area[1];
-
             for (int i = Integer.parseInt(xPadding); i <= Integer.parseInt(xPadding) + Integer.parseInt(width)-1; i++) {
                 //för varje x, loopa igeom ylistan
                 for (int j = Integer.parseInt(yPadding); j <= Integer.parseInt(yPadding) + Integer.parseInt(height)-1; j++) {
