@@ -29,7 +29,6 @@ public class Dec03 {
         for (String w : inputList) {
             String[] tempArray = w.split(" ");
 
-            String number = "";
             String xPadding;
             String yPadding = "";
             String width;

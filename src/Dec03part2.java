@@ -100,14 +100,9 @@ public class Dec03part2 {
                 for (int j = Integer.parseInt(yPadding); j <= Integer.parseInt(yPadding) + Integer.parseInt(height) - 1; j++) {
 
                     if (xList.get(i).get(j) == -1) {
-
                         isOverlapping = true;
-
                     }
-
-
                 }
-
             }
             if (!isOverlapping){
                 System.out.println("not overlapping: " + counter);
