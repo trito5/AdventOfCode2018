@@ -35,11 +35,6 @@ public class Dec03part2 {
             String width;
             String height;
 
-
-           /* for (int i = 1; i < tempArray[0].length(); i++) {
-                number += "" + tempArray[0].charAt(i);
-            }*/
-
             String[] paddings = tempArray[2].split(",");
             xPadding = paddings[0];
             for (int i = 0; i < paddings[1].length() - 1; i++) {
