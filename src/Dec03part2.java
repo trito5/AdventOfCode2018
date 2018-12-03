@@ -54,9 +54,6 @@ public class Dec03part2 {
                 //för varje x, loopa igeom ylistan
 
                 for (int j = Integer.parseInt(yPadding); j <= Integer.parseInt(yPadding) + Integer.parseInt(height) - 1; j++) {
-                    //Obs, måste ju lägga in all info först annars kan jag inte kolla.
-                    //Kanske lägga in alla som siffran, sen kolla igenom och sätta -1 om de överlappar
-
                     if (xList.get(i).get(j) == 0) {
                         xList.get(i).set(j, counter);
                     } else {
