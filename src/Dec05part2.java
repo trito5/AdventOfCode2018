@@ -69,10 +69,7 @@ public class Dec05part2 {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
 
         String line = br.readLine();
-       /* while (line != null) {
 
-            line = br.readLine();
-        }*/
 
         return line;
     }

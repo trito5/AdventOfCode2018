@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Dec05 {
@@ -58,10 +56,6 @@ public class Dec05 {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
 
         String line = br.readLine();
-       /* while (line != null) {
-
-            line = br.readLine();
-        }*/
 
         return line;
     }
