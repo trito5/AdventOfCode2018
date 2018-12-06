@@ -3,13 +3,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class Dec04 {
+public class Dec04part2 {
 
     public static void main(String[] args) {
 
@@ -79,40 +79,24 @@ public class Dec04 {
             }
 
         }
-        int longestSleep = 0;
-        int longestSleepId = 0;
-        for (Dec04Guard guard : guardList) {
-            if (guard.getSleepList().size() > longestSleep) {
-                longestSleep = guard.getSleepList().size();
-                longestSleepId = guard.getId();
-            }
-        }
 
-        System.out.println("Guard with longest sleep: " + longestSleepId);
-        for (Dec04Guard guard : guardList) {
-            if (guard.getId() == longestSleepId) {
-                Collections.sort(guard.getSleepList());
-                int minuteCounterA = 0;
-                int minuteCounterStore = 0;
-                int inMinute = 0;
-                int smallCounter = 0;
-                for (int i = 0; i < guard.getSleepList().size()-1; i++ ){
-                    if (guard.getSleepList().get(i) == guard.getSleepList().get(i + 1)) {
-                        smallCounter++;
-                        minuteCounterA = smallCounter;
-                    } else {
-                        smallCounter = 0;
-                    }
+        int idForMostSleep = 0;
+        int highestMinuteCounter = 0;
+        int sleepMinute = 0;
 
-                    if (minuteCounterA > minuteCounterStore) {
-                        inMinute = guard.getSleepList().get(i);
-                        minuteCounterStore = minuteCounterA;
-                    }
-                }
-                System.out.println("Minute: " + inMinute);
-                System.out.println("Sum: " + (longestSleepId * inMinute));
-            }
+        for (Dec04Guard guard : guardList) {
+
+           if (guard.getMostSleepMinute() > highestMinuteCounter) {
+               highestMinuteCounter = guard.getMostSleepMinute();
+               idForMostSleep = guard.getId();
+               ;
+               sleepMinute = guard.getMostMinuteAsleep();
+           }
         }
+        System.out.println("Guard id: " + idForMostSleep);
+        System.out.println("Minute: " + sleepMinute);
+        System.out.println("Product: " + idForMostSleep * sleepMinute);
+
     }
 
 

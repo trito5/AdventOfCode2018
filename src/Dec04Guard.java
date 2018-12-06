@@ -2,8 +2,9 @@ import java.util.*;
 
 public class Dec04Guard {
     private int id;
-    private List<Integer> sleepList = new ArrayList<>(Collections.nCopies(60, 0));
-    private Map<String, Integer> SleepPerMinute = new HashMap<>();
+    private int mostMinuteAsleep;
+    private List<Integer> sleepList = new ArrayList<>();
+
 
     public Dec04Guard(int id) {
         this.id = id;
@@ -23,15 +24,39 @@ public class Dec04Guard {
 
     public void setId(int id) {
         this.id = id;
-
     }
 
-    public Map<String, Integer> getSleepPerMinute() {
-        return SleepPerMinute;
+    public int getMostMinuteAsleep() {
+        return mostMinuteAsleep;
     }
 
-    public void setSleepPerMinute(Map<String, Integer> sleepPerMinute) {
-        SleepPerMinute = sleepPerMinute;
+    public void setMostMinuteAsleep(int mostMinuteAsleep) {
+        this.mostMinuteAsleep = mostMinuteAsleep;
+    }
+
+    public int getMostSleepMinute(){
+
+        Collections.sort(getSleepList());
+        int minuteCounterA = 0;
+        int minuteCounterStore = 0;
+        int inMinute = 0;
+        int smallCounter = 0;
+        for (int i = 0; i <getSleepList().size()-1; i++ ){
+            if (getSleepList().get(i) == getSleepList().get(i + 1)) {
+                smallCounter++;
+                minuteCounterA = smallCounter;
+            } else {
+                smallCounter = 0;
+            }
+
+            if (minuteCounterA > minuteCounterStore) {
+                inMinute = getSleepList().get(i);
+                minuteCounterStore = minuteCounterA;
+                setMostMinuteAsleep(getSleepList().get(i));
+            }
+        }
+
+        return minuteCounterStore;
     }
 }
 
